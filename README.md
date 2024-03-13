@@ -4,6 +4,9 @@ ESP32 Microcontroller to control an WS2812b LED Matrix for a Pick By Light Syste
 ## Color Picker
 - https://www.rapidtables.com/web/color/RGB_Color.html
 
+## Communication
+Communication via REST-API, code example here: https://github.com/jiteshsaini/rest-api-examples
+
 ## Requirements
 
 - install FastLED library https://github.com/FastLED/FastLED

@@ -7,11 +7,10 @@
 #include <HTTPClient.h>
 #include <ArduinoJson.h>
 
-const char* ssid = "yourSSID";
-const char* password = "yourPassword";
+const char* ssid = "your_ssid";
+const char* password = "your_wifi_password";
 
-String server = "https://helloworld.co.in/demo/rest-api/data.php";
-//String server = "http://192.168.1.3/demo/rest-api/data.php";
+String server = "http://www.loox.is/pickbylight/data.php";
 
 #define builtIn_Led 2
 
@@ -40,13 +39,20 @@ void fetch_data()
         deserializeJson(doc, result);
         JsonObject obj = doc.as<JsonObject>();
 
-        int temp = obj["1"]["temp"];
-        int hum = obj["1"]["hum"];
-        int pres = obj["1"]["pres"];
+    // Retrieve values as strings
+    String row = obj["row"].as<String>();
+    int col = obj["col"];
+    String action = obj["action"].as<String>();
+    String status = obj["status"].as<String>();
 
-        Serial.print("\nTemperature: ");Serial.println(temp);
-        Serial.print("Humidity: ");Serial.println(hum);
-        Serial.print("Pressure: ");Serial.println(pres);
+    Serial.print("\nRow: ");
+    Serial.println(row);
+    Serial.print("Column: ");
+    Serial.println(col);
+    Serial.print("Action: ");
+    Serial.println(action);
+    Serial.print("Status: ");
+    Serial.println(status);
         
       }
       else {
